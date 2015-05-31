@@ -135,7 +135,7 @@ The __confidence__ on rule $A \Rightarrow B$ is defined as:
 $$
 \begin{aligned}
 Confidence(A \Rightarrow B) &= Pr(A \Rightarrow B) \\
-                            &= Pr(A \subseteq{T_TID}\ |\ A \subseteq{T_TID})
+                            &= Pr(B \subseteq{T_{TID}}\ |\ A \subseteq{T_{TID}})
 \end{aligned}
 $$
 
@@ -693,8 +693,8 @@ After the __frequent itemsets__ are generated, the second phase is to generate v
 0   For each set i in freq k-sets, k > 1
 1       For l <= 1 to Count(i) - 1
 2           For each subset j of i that Count(j) = l
-3               If Conf("i => j") > min_conf
-4                   Append(Rules, "i => j")
+3               If Conf("j => i / j") > min_conf
+4                   Append(Rules, "j => i / j")
 5   Return {Rules}
 ```
 
